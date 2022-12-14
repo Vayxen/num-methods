@@ -1,0 +1,1 @@
+#premise: this is a worse algorithm
