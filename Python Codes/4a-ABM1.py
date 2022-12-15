@@ -1,3 +1,5 @@
+# ABM1 = Adams-Bashforth-Moulton of the first order (which is the two-step Predictor-Corrector method)
+
 import numpy as np
 #controlla gli appunti
 f = lambda x, y: (x**2)/2 + np.sin(y) #ODE da risolvere
