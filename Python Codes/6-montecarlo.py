@@ -4,17 +4,16 @@ random.seed(2) #? optional in the code, required by the test
 
 #incomplete code
 
-V0 = 2 #beginning value
-step = 2 #new calcs every 2 volts
+V = 1 #beginning value
+step = 1 #new calcs every 2 volts
 #uncertainty on voltage 3%
 #uncertainty on current intensity 6%
+R = 200
 
 u1 = random.random()
 u2 = random.random()
 
-#choosing which
-V = lambda i, r: i*r #placeholder for the function
-V_delta = lambda x, a, b: a+(b*(x+step))
+I = lambda v, r: v/r
 
 BM_x = lambda u1, u2: sqrt((-2) * (np.log(u1))) * (np.cos((2 * np.pi * u2))).real
 BM_y = lambda u1, u2: sqrt((-2) * (np.log(u1))) * (np.sin((2 * np.pi * u2))).real #I should stop using lambdas like this, also BM means Box Mueller
@@ -24,11 +23,11 @@ BM_y = lambda u1, u2: sqrt((-2) * (np.log(u1))) * (np.sin((2 * np.pi * u2))).rea
 #start from 2V and obtain 10 measurements of voltage and current intensity (associating it to each resistance value)
 
 print("V\t I")
-while R < 200: # Ohms
-    T1 = V(x, a, b) #analytical values
-    T2 = V_delta(x, a, b)
+while V < 10: # Ohms
+    I1 = I(V, R) #analytical values
+    I2 = I(V+step, R)
 
-    V_random1 = sigma * BM_x(u1, u2) + T1 
-    V_random2 = sigma * BM_y(u1, u2) + T2
-    print(f"{x}\t{T_random1}\n{x+sigma}\t{T_random2}")
-    x += 2*step
+    I_random1 = step * BM_x(u1, u2) + I1 
+    I_random2 = step * BM_y(u1, u2) + I2
+    print(f"{V}\t{I_random1}\t\tAssociated resistance: {V/I_random1}\n{V+step}\t{I_random2}\t\tAssociated resistance: {(V+step)/I_random2}")
+    V += 2*step
