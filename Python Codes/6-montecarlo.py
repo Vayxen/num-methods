@@ -26,8 +26,8 @@ print("V\t I")
 while V < 10: # Ohms
     I1 = I(V, R) #analytical values
     I2 = I(V+step, R)
-
-    I_random1 = step * BM_x(u1, u2) + I1 
-    I_random2 = step * BM_y(u1, u2) + I2
+    #FORMULA IS I_RANDOM = UNCERTAINTY * BOXMUELLERVALUE + ANALYTICALVALUE
+    I_random1 = (5*I1/100) * BM_x(u1, u2) + I1 
+    I_random2 = (5*I2/100) * BM_y(u1, u2) + I2
     print(f"{V}\t{I_random1}\t\tAssociated resistance: {V/I_random1}\n{V+step}\t{I_random2}\t\tAssociated resistance: {(V+step)/I_random2}")
     V += 2*step
