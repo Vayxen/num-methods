@@ -7,7 +7,6 @@ def risefact(a, k): #this is to evaluate the r(r+1)(r+2)... sequence but could a
     else:
         return a * risefact(a+1, k-1)
 
-x_points = np.linspace(0.5, 1.85, 10)
 y_points = np.array([1.51295, 1.79024, 2.04887, 2.27976, 2.47567, 2.63142, 2.74432, 2.81448, 2.84532, 2.84409])
 
 X = 1.75 #value where we are interpolating
@@ -18,7 +17,7 @@ alldiff = [y_points] #will be a list of arrays
 
 for step in range(max_order + 1): # do this difference operation (order) times
     for i in range(len(y_points)): #on the list of delta values, take the previous array and apply differences, append result to differences array
-            diff.append(round(y_points[i] - y_points[i-1], 5))
+            diff.append(y_points[i] - y_points[i-1])
     
     alldiff.append(diff) # gotta have somewhere to save em
     y_points = diff #now my previous array is the one I do calculations on
