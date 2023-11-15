@@ -29,3 +29,5 @@ for k in range(max_order):
     temp_res = result # needed for iterative error?
     result += (risefact(r, k) * alldiff[k][8])/f(k)
     print(f"Interpolation of order {k+1}: {round(result, 7)}\n\t Error term: {round((risefact(r, k+1) * alldiff[k][8])/f(k), 7)}\n\t Accuracy wrt analytical solution: unknown this is a random problem lol\n\t Iterative error: {result - temp_res}\n")
+
+print(list(map(len, alldiff)))

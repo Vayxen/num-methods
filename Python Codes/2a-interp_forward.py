@@ -29,4 +29,3 @@ for k in range(max_order):
     temp_res = result # needed for iterative error?
     result += (fallfact(r, k) * alldiff[k][0])/fact(k)
     print(f"Interpolation of order {k+1}: {round(result, 7)}\n\t Error term: {round((fallfact(r, k) * alldiff[k][0])/fact(k), 7)}\n\t Accuracy wrt analytical solution: {round(result-1.606830, 7)}\n\t Iterative error: {result - temp_res}\n")
-

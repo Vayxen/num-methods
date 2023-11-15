@@ -15,7 +15,6 @@ def rk4(x, y, f): #uso RK4 (senza ciclo, non mi serve) per ottenere solo il prim
     k1 = h * f(x + (h/2), y + (k0/2))
     k2 = h * f(x + (h/2), y + (k1/2))
     k3 = h * f(x + h, y + k2)
-
     return (1/6)*(k0 + 2*k1 + 2*k2 + k3)
 
 w1 = rk4(x0, y0, f) #calcolo il primo punto per completare la formula P-C e dare quindi inizio al while
