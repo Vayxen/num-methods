@@ -12,20 +12,20 @@ h = np.float64((b-a) / N) #step
 print(h)
 
 
-xs = np.linspace(a, b, N) #np.arange(a, b+h, h) yields the correct step unlike linspace which gets it horrifyingly wrong, however it still undershoots the final integral
-# print(xs)
-# print(xs[1:N-1:2]) #passi pari (dispari per l'indicizzazione)
-# print(xs[2:N-1:2]) #viceversa
+argument = np.linspace(a, b, N) #np.arange(a, b+h, h) yields the correct step unlike linspace which gets it horrifyingly wrong, however it still undershoots the final integral
+# print(argument)
+# print(argument[1:N-1:2]) #passi pari (dispari per l'indicizzazione)
+# print(argument[2:N-1:2]) #viceversa
 
 
 integral = f(a) + f(b)
 
 #! slicing does NOT exclude endpoint
 
-for i in xs[1:N-1:2]: #even index terms
+for i in argument[1:N-1:2]: #even index terms
     integral += 4*f(i)
 
-for i in xs[2:N-1:2]:
+for i in argument[2:N-1:2]:
     integral += 2*f(i)
 
 print((h/3)*integral)
@@ -34,9 +34,9 @@ integral = f(a) + f(b)
 
 for i in range(1, N-1):
     if i % 2 == 0:
-        integral += 4 * f(xs[i])
+        integral += 4 * f(argument[i])
     else:
-        integral += 2 * f(xs[i])
+        integral += 2 * f(argument[i])
 
 print((h/3)*integral)
 
