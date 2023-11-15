@@ -1,3 +1,6 @@
+'''
+QUESTO CODICE NON FUNZIONA BENE ANCHE SE L'IDEA C'E'
+'''
 import numpy as np
 
 f = lambda x: np.exp(x**2)
